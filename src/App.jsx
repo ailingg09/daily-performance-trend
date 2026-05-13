@@ -14,16 +14,18 @@ function generateData() {
     const label = d.toISOString().slice(0, 10)
     const isTripOff = i >= 16 && i <= 21
 
-    const normalRev  = Math.round(25000 + Math.random() * 30000)
-    const normalLoss = Math.round(normalRev * (0.15 + Math.random() * 0.12))
-    const normalConv = Math.round(300 + Math.random() * 200)
-
+    let normalRev = 0, normalLoss = 0, normalConv = 0
     let tripRev = 0, tripLoss = 0, tripConv = 0
+
     if (isTripOff) {
       const scale = i === 18 ? 10 : i === 17 || i === 19 ? 6 : i === 20 ? 4 : 3
       tripRev  = Math.round(20000 * scale + Math.random() * 5000)
       tripLoss = Math.round(tripRev * (0.08 + Math.random() * 0.1))
       tripConv = Math.round(800 * scale + Math.random() * 200)
+    } else {
+      normalRev  = Math.round(25000 + Math.random() * 30000)
+      normalLoss = Math.round(normalRev * (0.15 + Math.random() * 0.12))
+      normalConv = Math.round(300 + Math.random() * 200)
     }
 
     rows.push({ date: label, normalRev, normalLoss, normalConv, tripRev, tripLoss, tripConv })
