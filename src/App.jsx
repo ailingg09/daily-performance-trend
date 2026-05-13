@@ -20,11 +20,11 @@ function generateData() {
     if (isTripOff) {
       const scale = i === 18 ? 10 : i === 17 || i === 19 ? 6 : i === 20 ? 4 : 3
       tripRev  = Math.round(20000 * scale + Math.random() * 5000)
-      tripLoss = Math.round(tripRev * (0.08 + Math.random() * 0.1))
+      tripLoss = Math.round(tripRev * (0.03 + Math.random() * 0.04))
       tripConv = Math.round(800 * scale + Math.random() * 200)
     } else {
       normalRev  = Math.round(25000 + Math.random() * 30000)
-      normalLoss = Math.round(normalRev * (0.15 + Math.random() * 0.12))
+      normalLoss = Math.round(normalRev * (0.03 + Math.random() * 0.04))
       normalConv = Math.round(300 + Math.random() * 200)
     }
 
@@ -90,7 +90,7 @@ function CustomTooltip({ active, payload, label }) {
         <span>Total Conversions:</span><span>{totalConv}</span>
       </div>
       <div className="tooltip-row tooltip-total tooltip-loss">
-        <span>Total Loss:</span><span>{fmt(totalL)}</span>
+        <span>Total Loss:</span><span>-{fmt(totalL)}</span>
       </div>
     </div>
   )
@@ -135,7 +135,7 @@ export default function App() {
         </div>
         <div className="summary-card loss">
           <div className="label">Total Loss (Total Refund)</div>
-          <div className="value">{fmt(totalLoss)}</div>
+          <div className="value">-{fmt(totalLoss)}</div>
         </div>
         <div className="summary-card">
           <div className="label">Total Conversions</div>
