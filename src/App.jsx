@@ -101,7 +101,7 @@ function CustomLegend() {
   const items = [
     { color: '#93c5fd', label: 'Normal Revenue (¥)' },
     { color: '#c4b5fd', label: 'Trip-off Revenue (¥)' },
-    { color: '#e53e3e', label: 'Loss (¥)' },
+    { color: '#e53e3e', label: 'Total Loss (¥)' },
     { color: '#1e3a5f', label: 'Normal Conversions' },
     { color: '#7c3aed', label: 'Trip-off Conversions' },
   ]
